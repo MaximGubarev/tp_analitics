@@ -5,8 +5,9 @@ with ref_mod as
 select ai1.marker
         , ai2.marker as parent_marker
         , case when ai2.marker is NULL then 0 else 1 end as flag_child
-        , to_date(ai1.created_at) as child_reg_date
-        , to_date(ai2.created_at) as parent_reg_date
+        -- Тут полная херь
+        --, to_date(ai1.created_at) as child_reg_date
+        --, to_date(ai2.created_at) as parent_reg_date
 from tp.users u
     inner join tp.affiliate_infos ai1 on ai1.affiliate_id = u.id and ai1.internal = 0
     left join tp.affiliate_infos ai2 on ai2.affiliate_id = u.parent_id and ai2.internal = 0
