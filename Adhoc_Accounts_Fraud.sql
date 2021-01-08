@@ -13,7 +13,7 @@ from
 select id as order_id
         , marker
         --, max(booked_at) as booking_dttm
-        , min(updated_at) as processing_dttm
+        --, min(updated_at) as processing_dttm
 from tp.lombard_actions_log
 where to_date(booked_at) >= '2020-01-01'
         and campaign_id = 99
