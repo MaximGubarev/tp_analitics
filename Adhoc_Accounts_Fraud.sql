@@ -10,18 +10,7 @@ select t1.order_id
         , datediff(t3.cancelled_dttm,t2.paid_dttm) as days_between_paid_cancelled
 from 
 (
-select id as order_id
-        , marker
-        --, max(booked_at) as booking_dttm
-        --, min(updated_at) as processing_dttm
-from tp.lombard_actions_log
-where to_date(booked_at) >= '2020-01-01'
-        and campaign_id = 99
-        and marker in(296854, 272750, 272099)
-        and type = 'action'
-        and action_type = 'booking'
-        and action_state = 'processing'
-group by 1,2
+
 ) t1
 
 LEFT JOIN
