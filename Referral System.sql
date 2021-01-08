@@ -5,7 +5,7 @@ with ref_mod as
 select ai1.marker
         , ai2.marker as parent_marker
         , case when ai2.marker is NULL then 0 else 1 end as flag_child
-        -- Тут полная херь
+        -- Тут полная херь ТЕПЕРЬ РАБОТАЕТ
         --, to_date(ai1.created_at) as child_reg_date
         --, to_date(ai2.created_at) as parent_reg_date
 from tp.users u
